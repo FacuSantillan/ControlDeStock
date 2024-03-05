@@ -12,22 +12,22 @@ module.exports = (sequelize) => {
     producto_id: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: false,
+      unique: true,
     },
-    vendedor: {
+    vendedor_id: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: false,
+      unique: true,
     },
     fecha: {
-      type: DataTypes.STRING,
+      type: DataTypes.ARRAY(DataTypes.DATE), // Assuming DATE data type, change accordingly if needed
       allowNull: false,
       unique: false,
     },
     total: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: false,
+      unique: true,
     }
   },
 );
