@@ -1,6 +1,6 @@
 const { Vendedor, 
     Venta, 
-    Productos, 
+    Producto, 
     Proveedor, 
     DetalleDeVenta,
     OrdenDeCompra, 
@@ -27,21 +27,32 @@ const getAllVendedores = async() => {
 };
 
 const getAllProductos = async() => {
-    const response = await Vendedor.findAll({
+    const response = await Producto.findAll({
         attributes:[
             "id",
             "nombre",
-            "apellido"
+            "descripcion",
+            "precio",
+            "precio_costo",
+            "cantidad_disponible"
         ],
         order: [["createdAt","DESC"]],
-        include: { model: Venta }
+        include: { model: Proveedor }
     });
 
     return response.map((res) => {
         return{
             id:res.dataValues.id,
             nombre:res.dataValues.nombre,
-            apellido:res.dataValues.apellido
+            descripcion:res.dataValues.descripcion,
+            precio:res.dataValues.precio,
+            precio_costo:res.dataValues.precio_costo,
+            cantidad_disponible:res.dataValues.cantidad_disponible
         };
     })
+};
+
+modules.exports = {
+    getAllProductos,
+    getAllVendedores
 }
