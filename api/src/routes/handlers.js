@@ -2,6 +2,8 @@ const postVentas = require("../controller/RoutesPost/postVentas");
 const postVendedor = require("../controller/RoutesPost/postVendedor");
 const postProducto = require("../controller/RoutesPost/postProducto");
 
+const { getAllVendedores, getAllProductos } = require("../controller/RoutesGet/getAllFromDB");
+
 //-----------------Crear nueva venta-----------------//
 const postVenta = async (req, res) => {
     try {
@@ -51,7 +53,7 @@ const createVendedor = async (req, res) => {
 //-----------------Crear nuevo producto-----------------//
 const createProducto = async (req, res) => {
     try {
-        const { nombre, descripcion, precio, precio_costo, cantidad_disponible } = req.body;
+        const { nombre, descripcion, precio, precio_costo, cantidad_disponible, proveedor } = req.body;
 
         if (!nombre || !precio ) {
             res.status(400).json('Falta el/los campo/s necessaryario/s')
@@ -62,7 +64,8 @@ const createProducto = async (req, res) => {
             descripcion,
             precio,
             precio_costo,
-            cantidad_disponible
+            cantidad_disponible,
+            proveedor
         }
         const producto = await postProducto(ProductoData);
         res.status(200).json(producto)
@@ -73,8 +76,23 @@ const createProducto = async (req, res) => {
     };
 };
 
+const getProductos = async(req, res) => {
+try {
+    const response = await getAllProductos();
+
+    if(response.length){
+        res.status(200).json(response); // Si hay reservas, se envía la respuesta 200
+    } else {
+        res.status(400).json('No hay productos momentaneamente.'); // Si no hay reservas, se envía la respuesta 400
+    }
+} catch (error) {
+    res.status(500).json({ error: error.message })
+    }
+};
+
 module.exports = {
     postVenta,
     createVendedor,
-    createProducto
+    createProducto,
+    getProductos
 }

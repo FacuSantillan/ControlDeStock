@@ -10,27 +10,27 @@ sequelize.define('Proveedor', {
     },
     nombre: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       unique: false,
     },
     direccion: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       unique: false,
     },
     encargado_entrega:{
       type :DataTypes.STRING ,
-      allowNull: false,
+      allowNull: true,
       unique: false,
     },
     fecha_ultima_entrega:{
         type :DataTypes.STRING ,
-        allowNull: false,
+        allowNull: true,
         unique: false,
       },
       telefono:{
         type :DataTypes.STRING ,
-        allowNull: false,
+        allowNull: true,
         unique: false,
       },
   },

@@ -47,12 +47,13 @@ const getAllProductos = async() => {
             descripcion:res.dataValues.descripcion,
             precio:res.dataValues.precio,
             precio_costo:res.dataValues.precio_costo,
-            cantidad_disponible:res.dataValues.cantidad_disponible
+            cantidad_disponible:res.dataValues.cantidad_disponible,
+            proveedor: res.dataValues.Proveedor
         };
     })
 };
 
-modules.exports = {
+module.exports = {
     getAllProductos,
     getAllVendedores
 }
