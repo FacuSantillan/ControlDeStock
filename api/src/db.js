@@ -52,6 +52,7 @@ Producto.hasMany(DetalleOrdenDeCompra)
 DetalleOrdenDeCompra.belongsTo(Producto)
 
 Vendedor.hasMany(Venta)
+Producto.hasMany(Venta)
 Venta.belongsTo(Vendedor)
 
 Producto.hasMany(DetalleDeVenta)

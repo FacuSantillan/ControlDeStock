@@ -13,7 +13,6 @@ const getAllVendedores = async() => {
             "nombre",
             "apellido"
         ],
-        order: [["createdAt","DESC"]],
         include: { model: Venta }
     });
 
@@ -36,10 +35,8 @@ const getAllProductos = async() => {
             "precio_costo",
             "cantidad_disponible"
         ],
-        order: [["createdAt","DESC"]],
         include: { model: Proveedor }
     });
-
     return response.map((res) => {
         return{
             id:res.dataValues.id,
@@ -47,8 +44,7 @@ const getAllProductos = async() => {
             descripcion:res.dataValues.descripcion,
             precio:res.dataValues.precio,
             precio_costo:res.dataValues.precio_costo,
-            cantidad_disponible:res.dataValues.cantidad_disponible,
-            proveedor: res.dataValues.Proveedor
+            cantidad_disponible:res.dataValues.cantidad_disponible
         };
     })
 };

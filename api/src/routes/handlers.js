@@ -7,17 +7,17 @@ const { getAllVendedores, getAllProductos } = require("../controller/RoutesGet/g
 //-----------------Crear nueva venta-----------------//
 const postVenta = async (req, res) => {
     try {
-        const { producto_id, vendedor_id, fecha, total  } = req.body;
+        const { productoId, vendedorId, fecha, cantidad } = req.body;
 
-        if(!(producto_id && total)){
+        if(!(productoId && cantidad)){
             return res.status(400).send({message: "Faltan datos necesarios"});
         }
 
         const ventaData = {
-            producto_id,
-            vendedor_id,
+            productoId,
+            vendedorId,
             fecha,
-            total
+            cantidad
         };
         const newVenta = await postVentas(ventaData)
         res.status(200).json(newVenta)
@@ -34,7 +34,7 @@ const createVendedor = async (req, res) => {
         const { nombre, apellido } = req.body;
 
         if (!nombre || !apellido ) {
-            res.status(400).json('Falta el/los campo/s necessaryario/s')
+            res.status(400).json('Faltan datos a completar')
         };
 
         const vendedorData = {
@@ -76,6 +76,7 @@ const createProducto = async (req, res) => {
     };
 };
 
+//-----------------Obtener todos los productos-----------------//
 const getProductos = async(req, res) => {
 try {
     const response = await getAllProductos();
@@ -90,9 +91,24 @@ try {
     }
 };
 
+//-----------------Obtener todos los vendedores-----------------//
+const getVendedores = async(req, res) => {
+    try {
+        const response = await getAllVendedores();
+        if(response.length){
+            res.status(200).json(response);
+        }else res.status(400).json("no hay vendedores momentaneamente")
+    } catch (error) {
+        res.status(500).json({ error: error.message })
+    };
+};
+
+
+
 module.exports = {
     postVenta,
     createVendedor,
     createProducto,
-    getProductos
+    getProductos,
+    getVendedores
 }

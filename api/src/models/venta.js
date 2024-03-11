@@ -9,22 +9,22 @@ module.exports = (sequelize) => {
       allowNull: false,
       primaryKey: true,
     },
-    producto_id: {
+    productoId: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
     },
-    vendedor_id: {
+    vendedorId: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
     },
     fecha: {
-      type: DataTypes.ARRAY(DataTypes.DATE), // Assuming DATE data type, change accordingly if needed
+      type: DataTypes.STRING, 
       allowNull: false,
       unique: false,
     },
-    total: {
+    cantidad: {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,

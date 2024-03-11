@@ -1,23 +1,23 @@
 const { Venta } = require("../../db");
 
 const createVenta = async (ventaData) => {
-    const { producto_id, vendedor_id, fecha, total  } = ventaData;
+    const { productoId, vendedorId, fecha, cantidad  } = ventaData;
+    console.log(ventaData)
 
     const newVenta = await Venta.create({
-        producto_id : producto_id,
-        vendedor_id : vendedor_id,
-        fecha: new Date(),
-        total
+        vendedorId,
+        productoId,
+        fecha,
+        cantidad
     });
 
     const result = await Venta.findOne({
         where: {
             id: newVenta.id, 
         },
-        attributes: ["producto_id", "vendedor_id", "fecha", "total"]
+        attributes: ["productoId", "vendedorId", "fecha", "cantidad"]
     });
-     
-        return result;    
+    return result;    
 };
 
 module.exports = createVenta;

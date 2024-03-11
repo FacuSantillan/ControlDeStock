@@ -2,12 +2,11 @@ const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
 sequelize.define('Proveedor', {
-    id: {
-      type: DataTypes.UUID,
-      defaultValue: DataTypes.UUIDV4, 
-      allowNull: false,
-      primaryKey: true,
-    },
+  id: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true
+  },
     nombre: {
       type: DataTypes.STRING,
       allowNull: true,
