@@ -1,8 +1,7 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-
-  sequelize.define('Venta', {
+  const Venta = sequelize.define('Venta', {
     id: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4, 
@@ -10,25 +9,24 @@ module.exports = (sequelize) => {
       primaryKey: true,
     },
     productoId: {
-      type: DataTypes.STRING,
+      type: DataTypes.UUID, 
       allowNull: false,
-      unique: true,
     },
-    vendedorId: {
+    vendedor: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
     },
     fecha: {
       type: DataTypes.STRING, 
       allowNull: false,
-      unique: false,
     },
     cantidad: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true,
     }
-  },
-);
+  });
+
+  // Asociación con Producto
+  Venta.belongsTo(sequelize.models.Producto, { foreignKey: 'productoId' });
+
 };

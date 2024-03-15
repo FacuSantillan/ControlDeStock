@@ -9,11 +9,6 @@ module.exports = (sequelize) => {
         allowNull: false,
         primaryKey: true,
       },
-      proveedorId:{
-        type: DataTypes.STRING,
-        allowNull: true,
-        unique: false,
-      },
       nombre: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -21,22 +16,32 @@ module.exports = (sequelize) => {
       },
       descripcion: {
         type: DataTypes.STRING,
-        allowNull: false,
+        allowNull: true,
         unique: false,
       },
-      precio:{
+      precio_venta:{
         type :DataTypes.STRING ,
-        allowNull: false,
+        allowNull: true,
         unique: false,
       },
       precio_costo:{
         type :DataTypes.STRING ,
-        allowNull: false,
+        allowNull: true,
         unique: false,
       },
       cantidad_disponible:{
           type :DataTypes.STRING ,
-          allowNull: false,
+          allowNull: true,
+          unique: false,
+        },
+        proveedor:{
+          type :DataTypes.STRING ,
+          allowNull: true,
+          unique: false,
+        },
+        ultima_entrega:{
+          type :DataTypes.STRING ,
+          allowNull: true,
           unique: false,
         }
   },

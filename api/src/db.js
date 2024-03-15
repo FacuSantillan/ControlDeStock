@@ -32,34 +32,30 @@ sequelize.models = Object.fromEntries(capsEntries);
 // Para relacionarlos hacemos un destructuring
 
 const { DetalleDeVenta } = sequelize.models;
-const { DetalleOrdenDeCompra } = sequelize.models;
 const { OrdenDeCompra } = sequelize.models;
 const { Producto } = sequelize.models;
-const { Proveedor } = sequelize.models;
-const { Vendedor } = sequelize.models;
 const { Venta } = sequelize.models;
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
 
-Proveedor.hasMany(OrdenDeCompra)
-OrdenDeCompra.belongsTo(Proveedor)
+DetalleDeVenta.belongsTo(Producto, { foreignKey: 'productoId', as: 'ProductoDetalle' });
 
-OrdenDeCompra.hasMany(DetalleOrdenDeCompra)
-DetalleOrdenDeCompra.belongsTo(OrdenDeCompra)
+// Una orden de compra tiene muchos detalles de compra (productos)
+OrdenDeCompra.hasMany(DetalleDeVenta, { foreignKey: 'ordenDeCompraId', as: 'OrdenDetalle' });
 
-Producto.hasMany(DetalleOrdenDeCompra)
-DetalleOrdenDeCompra.belongsTo(Producto)
+// Una venta tiene muchos detalles de venta
+Venta.hasMany(DetalleDeVenta, { foreignKey: 'ventaId', as: 'VentaDetalle' });
 
-Vendedor.hasMany(Venta)
-Producto.hasMany(Venta)
-Venta.belongsTo(Vendedor)
+// Un detalle de venta pertenece a una venta
+DetalleDeVenta.belongsTo(Venta, { foreignKey: 'ventaId', as: 'DetalleVentaVenta' });
 
-Producto.hasMany(DetalleDeVenta)
-DetalleDeVenta.belongsTo(Producto)
+// Una orden de compra puede tener muchos productos
+OrdenDeCompra.belongsToMany(Producto, { through: DetalleDeVenta, foreignKey: 'ordenDeCompraId', as: 'OrdenCompraProducto' });
 
-Proveedor.hasMany(Producto)
-Producto.belongsTo(Proveedor)
+// Un producto puede estar en muchas órdenes de compra
+Producto.belongsToMany(OrdenDeCompra, { through: DetalleDeVenta, foreignKey: 'productoId', as: 'ProductoOrdenCompra' });
+
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');

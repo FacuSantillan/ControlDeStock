@@ -1,29 +1,8 @@
-const { Vendedor, 
-    Venta, 
+const { Venta, 
     Producto, 
-    Proveedor, 
     DetalleDeVenta,
-    OrdenDeCompra, 
-    DetalleOrdenDeCompra  } = require("../../db");
-
-const getAllVendedores = async() => {
-    const response = await Vendedor.findAll({
-        attributes:[
-            "id",
-            "nombre",
-            "apellido"
-        ],
-        include: { model: Venta }
-    });
-
-    return response.map((res) => {
-        return{
-            id:res.dataValues.id,
-            nombre:res.dataValues.nombre,
-            apellido:res.dataValues.apellido
-        };
-    })
-};
+    OrdenDeCompra,
+  } = require("../../db");
 
 const getAllProductos = async() => {
     const response = await Producto.findAll({
@@ -33,9 +12,9 @@ const getAllProductos = async() => {
             "descripcion",
             "precio",
             "precio_costo",
-            "cantidad_disponible"
+            "cantidad_disponible",
+            "proveedor"
         ],
-        include: { model: Proveedor }
     });
     return response.map((res) => {
         return{
@@ -44,12 +23,44 @@ const getAllProductos = async() => {
             descripcion:res.dataValues.descripcion,
             precio:res.dataValues.precio,
             precio_costo:res.dataValues.precio_costo,
-            cantidad_disponible:res.dataValues.cantidad_disponible
+            cantidad_disponible:res.dataValues.cantidad_disponible,
+            proveedor:res.dataValues.proveedor
         };
     })
 };
 
+const getAllVentas = async () => {
+    const response = await Venta.findAll({
+        attributes:[
+            "id",
+            "vendedor",
+            "fecha",
+            "cantidad"
+        ],
+        include:{ model:Producto },
+        order: [['createdAt', 'DESC']],
+    });
+    return response.map((res) => {
+        return {
+            id: res.dataValues.id,
+            vendedor: res.dataValues.vendedor,
+            fecha: res.dataValues.fecha,
+            cantidad: res.dataValues.cantidad,
+            // producto: res.dataValues.Producto.map((producto)=>{
+            //     return{
+            //         nombre:producto.nombre,
+            //         descripcion:producto.descripcion,
+            //         precio:producto.precio,
+            //         precio_costo:producto.precio_costo,
+            //         cantidad_disponible:producto.cantidad_disponible,
+            //         proveedor:producto.proveedor
+            //     }
+            // })   
+         }
+    })
+}
+
 module.exports = {
     getAllProductos,
-    getAllVendedores
+    getAllVentas
 }
