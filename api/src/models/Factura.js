@@ -1,36 +1,32 @@
 const { DataTypes } = require('sequelize');
 
 module.exports = (sequelize) => {
-  const Producto = sequelize.define('Producto', {
+  const Factura = sequelize.define('Factura', {
     id: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
       allowNull: false,
       primaryKey: true,
     },
-    nombre: {
+    numeroFactura: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: false,
+      unique: true,
     },
-    descripcion: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: false,
-    },
-    precioCosto: {
-      type: DataTypes.FLOAT, 
+    fechaEmision: {
+      type: DataTypes.DATE,
       allowNull: false,
     },
-    precioVenta: {
-      type: DataTypes.FLOAT, 
+    total: {
+      type: DataTypes.FLOAT,
       allowNull: false,
     },
-    cantidadEnStock: {
-      type: DataTypes.INTEGER, 
+    estado: {
+      type: DataTypes.ENUM('pendiente', 'pagada'), 
       allowNull: false,
+      defaultValue: 'pendiente', 
     },
   });
 
-  return Producto;
+  return Factura;
 };
