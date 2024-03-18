@@ -13,11 +13,12 @@ module.exports = (sequelize) => {
         allowNull: false,
       },
     });
-  
+
     Vendedor.associate = (models) => {
-     
+      Vendedor.hasMany(models.Factura, { foreignKey: 'vendedorId' });
+      Vendedor.hasMany(models.Venta, { foreignKey: 'vendedorId' });
     };
-  
+
     return Vendedor;
   };
   

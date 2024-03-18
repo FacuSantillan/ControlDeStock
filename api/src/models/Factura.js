@@ -28,5 +28,10 @@ module.exports = (sequelize) => {
     },
   });
 
+ Factura.associate = (models) => {
+    Factura.belongsTo(models.Vendedor, { foreignKey: 'vendedorId' });
+    Factura.hasMany(models.DetalleFactura, { as: 'detalles', foreignKey: 'facturaId' });
+  };
+
   return Factura;
 };

@@ -31,6 +31,11 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
   });
+  
+  Producto.associate = (models) => {
+    Producto.belongsToMany(models.Factura, { through: 'DetalleFactura', foreignKey: 'productoId' });
+    Producto.belongsToMany(models.Venta, { through: 'DetalleVenta', foreignKey: 'productoId' });
+  };
 
   return Producto;
 };

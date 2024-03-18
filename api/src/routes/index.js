@@ -1,13 +1,14 @@
 const { Router } = require('express');
 
-const { } = require("./handlers");
+const { createVendedor,
+        createProducto } = require("./handlers");
 
 const router = Router();
 
 //Routes post:
 // router.post('/postProfesional', createProfesional);
-
-
+router.post("/postvendedor", createVendedor)
+router.post("/postproducto", createProducto)
 
 //Routes gets:
 // router.get('/getpacientes', getPaciente);
