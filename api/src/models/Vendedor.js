@@ -14,11 +14,6 @@ module.exports = (sequelize) => {
       },
     });
 
-    Vendedor.associate = (models) => {
-      Vendedor.hasMany(models.Factura, { foreignKey: 'vendedorId' });
-      Vendedor.hasMany(models.Venta, { foreignKey: 'vendedorId' });
-    };
-
     return Vendedor;
   };
   

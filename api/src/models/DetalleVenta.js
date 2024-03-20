@@ -10,6 +10,13 @@ module.exports = (sequelize) => {
           type: DataTypes.FLOAT,
           allowNull: false,
         },
+        ventaId: {
+          type: DataTypes.UUID,
+          allowNull: false,
+          references: {
+            model: 'Venta',
+            key: 'id'
+           }}
       });
     
       return DetalleVenta;
