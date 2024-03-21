@@ -11,25 +11,25 @@ module.exports = (sequelize) => {
     nombre: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: false,
     },
     descripcion: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: false,
     },
     precioCosto: {
-      type: DataTypes.FLOAT, 
+      type: DataTypes.FLOAT,
       allowNull: false,
     },
     precioVenta: {
-      type: DataTypes.FLOAT, 
+      type: DataTypes.FLOAT,
       allowNull: false,
     },
     cantidadEnStock: {
-      type: DataTypes.INTEGER, 
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
+  }, {
+    timestamps: false,
   });
 
   return Producto;

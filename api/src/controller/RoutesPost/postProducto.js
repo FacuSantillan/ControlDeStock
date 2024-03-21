@@ -1,7 +1,8 @@
 const { Producto } = require('../../db')
 
-const postProducto = async (productoData) => {
-   const { nombre, descripcion, precioCosto, precioVenta, cantidadEnStock } = productoData;
+const postProducto = async (req, res) => {
+    try {
+        const { nombre, descripcion, precioCosto, precioVenta, cantidadEnStock } = req.body;
 
     const newProducto = await Producto.create({
         nombre, 
@@ -18,7 +19,12 @@ const postProducto = async (productoData) => {
         attributes: [ "id", "nombre", "descripcion", "precioCosto", "precioVenta", "cantidadEnStock"],
     })
 
-return result;
+    return res.status(201).json(result);
+    
+    } catch (error) {
+        res.status(500).json({ error: error.message })
+    }
+   
 
 };
 

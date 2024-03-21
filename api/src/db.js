@@ -48,13 +48,15 @@ DetalleVenta.belongsTo(Producto, { foreignKey: 'productoId' });
 DetalleFactura.belongsTo(Producto, { foreignKey: 'productoId' });
 
 Factura.hasMany(DetalleFactura, { foreignKey: 'facturaId' });
-
-DetalleFactura.belongsTo(Factura, { foreignKey: 'facturaId' });
+DetalleVenta.belongsTo(Factura, { foreignKey: 'ventaId' });
 
 Vendedor.hasMany(Venta, { foreignKey: 'vendedorId' });
 Venta.belongsTo(Vendedor, { foreignKey: 'vendedorId' });
 
 Venta.hasMany(DetalleVenta, { foreignKey: 'ventaId', allowNull: true });
+
+Factura.belongsTo(Vendedor, { foreignKey: 'vendedorId' });
+
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');

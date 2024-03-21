@@ -16,8 +16,11 @@ module.exports = (sequelize) => {
           references: {
             model: 'Venta',
             key: 'id'
-           }}
-      });
+           }
+         },
+    }, {
+      timestamps: false 
+    });
     
-      return DetalleVenta;
+    return DetalleVenta;
 };

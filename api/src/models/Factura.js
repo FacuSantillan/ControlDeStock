@@ -9,12 +9,12 @@ module.exports = (sequelize) => {
       primaryKey: true,
     },
     numeroFactura: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false,
       unique: true,
     },
     fechaEmision: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     total: {
@@ -26,6 +26,8 @@ module.exports = (sequelize) => {
       allowNull: false,
       defaultValue: 'pendiente', 
     },
+  },{
+    timestamps: false,
   });
 
   return Factura;

@@ -20,6 +20,8 @@ module.exports = (sequelize) => {
       type: DataTypes.FLOAT,
       allowNull: false,
     },
+  }, {
+    timestamps: false, // Deshabilitar las marcas de tiempo
   });
 
   return DetalleFactura;
