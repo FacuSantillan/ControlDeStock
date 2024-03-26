@@ -13,7 +13,7 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
   }, {
-    timestamps: false, // Deshabilitar las marcas de tiempo
+    timestamps: false, 
   });
 
   return Vendedor;

@@ -3,7 +3,9 @@ const { Router } = require('express');
 const postProducto = require("../controller/RoutesPost/postProducto");
 const crearVenta = require("../controller/RoutesPost/postVenta");
 const postVendedor = require("../controller/RoutesPost/postVendedor");
-;
+
+const { getVendedors,
+        getFacturas } = require("./handles")
 
 const router = Router();
 
@@ -15,7 +17,8 @@ router.post("/postventa", crearVenta);
 
 //Routes gets:
 // router.get('/getpacientes', getPaciente);
-
+router.get('/getvendedor', getVendedors);
+router.get('/getfacturas', getFacturas);
 
 //Routes Put:
 // router.put('/updatepaciente/:dni', updatePaciente);
