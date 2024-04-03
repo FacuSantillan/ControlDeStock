@@ -1,4 +1,4 @@
-const { Factura, DetalleFactura } = require("../../db");
+const { Factura, DetalleFactura, Producto } = require("../../db");
 
 const getAllFactura = async() => {
     const response = await Factura.findAll({
@@ -9,7 +9,10 @@ const getAllFactura = async() => {
             "total",
             "estado",
         ],
-        include: { model: DetalleFactura }
+        include: { 
+            model: DetalleFactura,
+            include: { model: Producto }
+        }
     });
 console.log(response)
     return response.map((res) => {
@@ -19,11 +22,16 @@ console.log(response)
             fechaEmision: res.dataValues.fechaEmision,
             total: res.dataValues.total,
             estado: res.dataValues.estado,
-            detalleFactura: res.dataValues.DetalleFactura.map((detallefactura) => {
+            detalleFactura: res.dataValues.DetalleFacturas.map((detalle) => {
                 return {
-                    cantidad: detallefactura.cantidad,
-                    precioUnitario: detallefactura.precioUnitario,
-                    subtotal: detallefactura.subtotal,
+                    cantidad: detalle.cantidad,
+                    precioUnitario: detalle.precioUnitario,
+                    subtotal: detalle.subtotal,
+                    producto: {
+                        id: detalle.Producto.id,
+                        nombre: detalle.Producto.nombre,
+                        precioVenta: detalle.Producto.precioVenta
+                    }
                 };
             }),
 
