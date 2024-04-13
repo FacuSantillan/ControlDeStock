@@ -6,7 +6,8 @@ const postVendedor = require("../controller/RoutesPost/postVendedor");
 
 const { getVendedors,
         getFacturas,
-        getVentas } = require("./handles")
+        getVentas,
+        getProductos } = require("./handles")
 
 const router = Router();
 
@@ -21,6 +22,7 @@ router.post("/postventa", crearVenta);
 router.get('/getvendedor', getVendedors);
 router.get('/getfacturas', getFacturas);
 router.get("/getventas", getVentas);
+router.get("/getproductos", getProductos)
 
 //Routes Put:
 // router.put('/updatepaciente/:dni', updatePaciente);

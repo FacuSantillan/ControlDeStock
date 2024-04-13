@@ -1,6 +1,7 @@
 const getAllFromVendedor = require("../controller/RoutesGet/getAllFromVendedor");
 const getAllFactura = require("../controller/RoutesGet/getAllFromFactura")
-const getAllVenta = require("../controller/RoutesGet/getAllFromVenta")
+const getAllVenta = require("../controller/RoutesGet/getAllFromVenta");
+const getAllProducto = require("../controller/RoutesGet/getAllFromProductos");
 
 const getVendedors = async(req, res) => {
     try {
@@ -44,8 +45,24 @@ const getVentas = async(req, res) => {
     };
 };
 
+const getProductos = async(req, res) => {
+    try {
+        const response = await getAllProducto();
+        if(response.length){
+            res.status(200).json(response); 
+        } else {
+            res.status(400).json('No hay productos momentaneamente.'); 
+        }
+    } catch (error) {
+        console.log(error)
+
+        res.status(500).json({ error: error.message });
+    };
+};
+
 module.exports = {
     getVendedors,
     getFacturas,
-    getVentas
+    getVentas,
+    getProductos
 }

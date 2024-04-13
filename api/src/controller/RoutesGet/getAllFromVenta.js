@@ -11,7 +11,7 @@ const getAllVenta = async() => {
             include: { model: Producto }
         }
     });
-console.log(response)
+    
     return response.map((res) => {
         return{
             id: res.dataValues.id,
