@@ -28,18 +28,19 @@
 
 .sidebar-content {
   display: flex;
-  flex-direction: center;
-  margin-left: 1%;
+  flex-direction: column;
+  margin-left: -7.5%;
   padding: 19px;
   margin-top: -4px;
   color: white;
   width: 100%;
-  z-index: 2; 
+  z-index: 2;
   transition: background-color 0.2s;
 }
 
 .sidebar.active .sidebar-content {
   align-items: flex-start; 
+  margin: auto;
 }
 
 .sidebar-content ul {
@@ -73,7 +74,7 @@
 
 .icon-container {
   align-items: center;
-  margin-right: 5px; /* Inicialmente, los iconos están ajustados hacia la izquierda */
+  margin-right: 5%; /* Cambiado a porcentaje */
   margin-bottom: 5px; /* Espacio entre el icono y el texto */
   transition: margin-right 0.3s ease; /* Agrega una transición a margin-right */
   color: white;
@@ -85,14 +86,14 @@ a{
 
 .icon-container.sidebar-item-active {
   align-items: center;
-  margin-right: -20px; /* Cuando la barra se expanda, ajusta los iconos hacia la derecha */
+  margin-right: -5%; /* Cambiado a porcentaje */
 }
 
 li span {
   color: white;
   font-size: 12px;
   margin-left: -6px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
   opacity: 0.8; 
   transition: font-size 0.5s;
 }

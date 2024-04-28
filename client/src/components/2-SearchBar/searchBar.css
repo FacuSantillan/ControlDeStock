@@ -1,0 +1,86 @@
+.container-all {
+    margin-left: 10%;
+    margin-top: 15vh;
+    background-color: white;
+    height: 14vh;
+    width: 55%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.container-searchbar {
+    margin-left: 6%;
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    width: 250px; /* Ajusta el ancho según sea necesario */
+    padding: 15px 15px;
+    font-size: 16px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-icon {
+    position: relative;
+    right: -36vh;
+    color: transparent;
+
+}
+
+.content-select select{
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+
+.content-select select::-ms-expand {
+    display: none;
+}
+
+.content-select{
+	max-width: 250px;
+	position: relative;
+}
+ 
+.content-select select{
+	display: inline-block;
+	width: 130%;
+	cursor: pointer;
+  	padding: 7px 10px;
+  	height: 42px;
+  	outline: 0; 
+  	border: 0;
+	border-radius: 0;
+	background: transparent;;
+	color: #7b7b7b00;
+	font-size: 1em;
+	color: #7e7e7e;
+	font-family: 
+	'Quicksand', sans-serif;
+	border:2px solid rgba(255, 255, 255, 0);
+    border-radius: 12px;
+    position: relative;
+    left: 30px;
+    transition: all 0.25s ease;
+}
+
+.content-select i{
+	position: absolute;
+	right: -40px;
+	top: calc(50% - 9px);
+	width: 10px;
+	height: 10px;
+	display: block;
+	border-left:2px solid #373737;
+	border-bottom:2px solid #373737;
+	transform: rotate(-45deg); /* Giramos el cuadrado */
+	transition: all 0.25s ease;
+}
+ 
+.content-select:hover i{
+	margin-top: 3px;
+}
