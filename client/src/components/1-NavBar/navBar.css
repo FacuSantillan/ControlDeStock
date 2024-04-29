@@ -4,7 +4,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  background-color: #29282d;
+  background-color: #1b1b1b;
   overflow-x: hidden;
   transition: width 0.5s;
   padding-top: 60px;
@@ -29,14 +29,15 @@
 .sidebar-content {
   display: flex;
   flex-direction: column;
-  margin-left: -7.5%;
+  margin-left: -29.5%;
   padding: 19px;
   margin-top: -4px;
   color: white;
-  width: 100%;
+  width: 146%;
   z-index: 2;
   transition: background-color 0.2s;
 }
+
 
 .sidebar.active .sidebar-content {
   align-items: flex-start; 
@@ -77,7 +78,7 @@
   margin-right: 5%; /* Cambiado a porcentaje */
   margin-bottom: 5px; /* Espacio entre el icono y el texto */
   transition: margin-right 0.3s ease; /* Agrega una transición a margin-right */
-  color: white;
+  color: #F1ECE7;
 }
 
 a{

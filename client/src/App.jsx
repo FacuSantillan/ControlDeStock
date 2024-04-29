@@ -6,7 +6,7 @@ import NavBar from './components/1-NavBar/navBar';
 import SearchBar from './components/2-SearchBar/searchBar';
 
 //Vistas
-
+import Vender from './views/1-Vender/Vender'
 
 import './App.css';
 
@@ -18,11 +18,10 @@ function App() {
     
     <div>
           {pathname != "/" && <NavBar/>}
-          {pathname === "/Vender" && <SearchBar/>}
 
     <Routes>
 
-      
+    <Route path='/Vender' element={<Vender/>}/>
 
     </Routes>
 

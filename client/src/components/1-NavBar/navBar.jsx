@@ -99,10 +99,12 @@ export default function NavBar() {
 
           </ul>
         </div>
-        <div>
-          {/* Aquí solo dejamos el icono dentro del botón */}
+        
+        {/* <div>
+
           <button onClick={clearLocalStorage} className='button-Logout'><FaSignOutAlt size="1.8em" /></button>
-        </div>
+        </div> */}
+
       </div>
 
       <div className="images-container" onClick={toggleSidebar}></div>
