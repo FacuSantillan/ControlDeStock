@@ -1,0 +1,151 @@
+.container-ventas{
+    position: fixed;
+    margin-left: 58.3%;
+    margin-top: 13.1%;
+    background-color: white;
+    height: 70%;
+    width: 32%;
+    border-radius: 10px;
+}
+
+.venta-producto{
+    position: relative;
+    top: -40px;
+    margin-top: 11%;
+    margin-left: 5%;
+    height: 8%;
+    width: 90%;
+    border-radius: 5px;
+    background-color: transparent; /* Cambiado a transparente */
+}
+
+input[type='number'] {
+    justify-items: baseline;
+    border-radius: 7px;
+    border: 1px solid grey;
+    margin-top: 2.3%;
+    margin-left: -1%;
+    height: 4vh;
+    width: 12%;
+    font-size: 16px; /* Modifica el tamaño del número */
+    text-align: center; /* Centra el número horizontalmente */
+    font-family: "Open Sans", sans-serif;
+    font-weight: 650;
+    -webkit-appearance: none; /* Oculta las flechas en WebKit (Safari, Chrome) */
+    -moz-appearance: textfield; /* Restaura el estilo predeterminado en Firefox */
+}
+
+/* Oculta las flechas en WebKit (Safari, Chrome) */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0; /* Corrige el desbordamiento en algunos navegadores */
+}
+
+.producto-nombre{
+    text-decoration: none;
+    position: absolute;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 650;
+    font-size: 14px;
+    left: 18%;
+    top: 3.5%;
+    max-width: 215px; /* Establece un ancho máximo para el nombre */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis; /* Recorta el texto y agrega puntos suspensivos */
+}
+
+.cantidad-stock{
+    text-decoration: none;
+    position: absolute;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 450;
+    font-size: 12px;
+    left: 18%;
+    top: 2.3vh;
+    color: grey;
+}
+
+.precio-prducto {
+    text-decoration: none;
+    position: absolute;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 650;
+    font-size: 17px;
+    left: 71%;
+    top: 3.7%;
+}
+
+.button-delete{
+    position: absolute;
+    border: 0px solid;
+    background-color: transparent;
+    cursor: pointer;
+    height: 50%;
+    width: 40px;
+    left: 92%;
+    top: -17.1%;
+}
+
+.productos-information{
+    position: sticky;
+    margin-top: -7.3%;
+    margin-left: -22px;
+}
+
+.container-productos-list {
+    position: relative;
+    margin-top: -35px;
+    top: 35px;
+    max-height: 100%;
+    overflow-y: auto;
+}
+
+.container-productos-list::-webkit-scrollbar {
+    width: 7px; /* Ancho de la barra de desplazamiento */
+}
+
+/* Estilo para el riel de la barra de desplazamiento */
+.container-productos-list::-webkit-scrollbar-track {
+    background: #ffffff; /* Color de fondo del riel */
+}
+
+/* Estilo para el pulgar de la barra de desplazamiento */
+.container-productos-list::-webkit-scrollbar-thumb {
+    background: #c5c5c5; /* Color del pulgar */
+    border-radius: 5px; /* Radio de borde del pulgar */
+}
+
+.container-productos-list::-webkit-scrollbar-thumb:hover {
+    background: #ffffff; 
+}
+
+.container-cobro {
+    position: fixed;
+    top: 73%;
+    right: 0.7%;
+    background-color: white;
+    height: 19.2%;
+    width: 29.4%;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.container-cobro p {
+    display: flex;
+    
+    margin: 5px 0;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 550;
+}
+
+.container-cobro input[type='text'] {
+    width: 70%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}

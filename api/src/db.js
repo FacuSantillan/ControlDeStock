@@ -31,33 +31,32 @@ sequelize.models = Object.fromEntries(capsEntries);
 // En sequelize.models están todos los modelos importados como propiedades
 // Para relacionarlos hacemos un destructuring
 
-const { DetalleDeVenta } = sequelize.models;
-const { DetalleOrdenDeCompra } = sequelize.models;
-const { OrdenDeCompra } = sequelize.models;
-const { Producto } = sequelize.models;
-const { Proveedor } = sequelize.models;
-const { Vendedor } = sequelize.models;
-const { Venta } = sequelize.models;
+const { DetalleFactura,
+        DetalleVenta,
+        Factura,
+        Producto,
+        Vendedor,
+        Venta } = sequelize.models;
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
 
+Producto.hasMany(DetalleVenta, { foreignKey: 'productoId' });
+Producto.hasMany(DetalleFactura, { foreignKey: 'productoId' });
 
+DetalleVenta.belongsTo(Producto, { foreignKey: 'productoId' });
+DetalleFactura.belongsTo(Producto, { foreignKey: 'productoId' });
 
-Proveedor.hasMany(OrdenDeCompra);
-OrdenDeCompra.belongsTo(Proveedor);
+Factura.hasMany(DetalleFactura, { foreignKey: 'facturaId' });
+DetalleVenta.belongsTo(Factura, { foreignKey: 'ventaId' });
 
-OrdenDeCompra.hasMany(DetalleOrdenDeCompra);
-DetalleOrdenDeCompra.belongsTo(OrdenDeCompra);
+Vendedor.hasMany(Venta, { foreignKey: 'vendedorId' });
+Venta.belongsTo(Vendedor, { foreignKey: 'vendedorId' });
 
-Producto.hasMany(DetalleOrdenDeCompra);
-DetalleOrdenDeCompra.belongsTo(Producto);
+Venta.hasMany(DetalleVenta, { foreignKey: 'ventaId', allowNull: true });
 
-Vendedor.hasMany(Venta);
-Venta.belongsTo(Vendedor);
+Factura.belongsTo(Vendedor, { foreignKey: 'vendedorId' });
 
-Producto.hasMany(DetalleDeVenta);
-DetalleDeVenta.belongsTo(Producto);
 
 module.exports = {
   ...sequelize.models, // para poder importar los modelos así: const { Product, User } = require('./db.js');
