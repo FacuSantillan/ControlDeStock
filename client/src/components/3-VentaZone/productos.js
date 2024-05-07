@@ -16,7 +16,13 @@ const productos = [
         nombre: 'Cepillo de dientes Oral-B',
         stock: 25,
         precio: '$50.75'
-    }
+    },
+     {
+        id: 4,
+        nombre: 'Colgate ruminous wuait pro max adssd',
+        stock: 25,
+        precio: '$50.75'
+    },
 ];
 
 export default productos;

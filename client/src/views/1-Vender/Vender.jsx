@@ -1,6 +1,6 @@
 import React from 'react';
 import SearchBar from '../../components/2-SearchBar/searchBar';
-import Ventas from '../../components/3-VentaZone/Ventas'
+import Card from '../../components/3-VentaZone/Ventas'
 
 import './Vender.css';
 
@@ -12,7 +12,8 @@ export default function Vender () {
         <h1 className="container-title"> Vender </h1>
 
             <SearchBar/>
-        <Ventas/>
+            
+        <Card/>
 
             <div className='container-button'>
                     <button className="content-button"> Agregar producto </button>
