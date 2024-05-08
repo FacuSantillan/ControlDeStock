@@ -97,7 +97,7 @@
 
   .content-button {
 	display: inline-block;
-	background-color: #76c066; /* Color de fondo naranja */
+	background-color: #66c091; /* Color de fondo naranja */
 	color: #fff; /* Color del texto blanco */
 	padding: 12px 14px; /* Ajuste de relleno */
 	font-size: 13px; /* Tamaño de fuente */
@@ -110,7 +110,7 @@
   }
   
   .content-button:hover {
-	background-color: #5fc249; /* Color de fondo más claro al pasar el cursor */
+	background-color: #66c0a3; /* Color de fondo más claro al pasar el cursor */
 	transform: scale(1.02); /* Aumento de tamaño al pasar el cursor */
   }
 
