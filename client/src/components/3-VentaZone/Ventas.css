@@ -135,7 +135,7 @@ input[type='number']::-webkit-outer-spin-button {
 .container-cobro p {
     display: flex;
     position: relative;
-    top: -25px;
+    top: -4.5vh;
     font-family: "Open Sans", sans-serif;
     font-weight: 550;
     color: rgb(53, 53, 53);
@@ -146,7 +146,7 @@ input[type='number']::-webkit-outer-spin-button {
     text-align: center;
     width: 13%;
     padding: 6px;
-    top: 21.4%;
+    top: 19.4%;
     left: 79%;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -162,7 +162,7 @@ input[type='number']::-webkit-outer-spin-button {
 
 .descuento{
     position: relative;
-    margin-top: -9px;
+    margin-top: -2vh;
 }
 
 .total{
@@ -181,7 +181,6 @@ input[type='number']::-webkit-outer-spin-button {
 }
 
 .subtotal-numero{
-    position: relative;
     left: 81.5%;
     margin-top: -8.8%;
     font-size: 19px;
@@ -196,25 +195,25 @@ input[type='number']::-webkit-outer-spin-button {
 
 .button-clear-carry{
     position: absolute;
-    top: 75%;
+    top: 73%;
     left: 7%;
     background-color: transparent;
     border: 1px solid grey;
     border-radius:8px;
     cursor: pointer;
-    height: 20%;
+    height: 23%;
     width: 9.8%;
 }
 
 .button-pay{
     position: absolute;
     background-color: #66c091; 
-    top: 75%;
+    top: 73%;
     color: white;
     left: 25%;
     width: 70%;
     border-radius: 8px;
-    height: 20%;
+    height: 23%;
     font-weight: 200;
     font-size: 19px;
     border: 0px solid gray;
@@ -229,7 +228,7 @@ input[type='number']::-webkit-outer-spin-button {
 
 .icon{
     position: absolute;
-    top: 78%;
+    top: 77%;
     left: 83%;
     color: rgb(255, 255, 255);
 }
