@@ -135,7 +135,7 @@ input[type='number']::-webkit-outer-spin-button {
 .container-cobro p {
     display: flex;
     position: relative;
-    top: -4.5vh;
+    top: -2.5vh;
     font-family: "Open Sans", sans-serif;
     font-weight: 550;
     color: rgb(53, 53, 53);
@@ -146,7 +146,7 @@ input[type='number']::-webkit-outer-spin-button {
     text-align: center;
     width: 13%;
     padding: 6px;
-    top: 19.4%;
+    top: 27.4%;
     left: 79%;
     border: 1px solid #ccc;
     border-radius: 5px;
