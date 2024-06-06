@@ -134,18 +134,101 @@ input[type='number']::-webkit-outer-spin-button {
 
 .container-cobro p {
     display: flex;
-    
-    margin: 5px 0;
+    position: relative;
+    top: -25px;
     font-family: "Open Sans", sans-serif;
     font-weight: 550;
+    color: rgb(53, 53, 53);
 }
 
-.container-cobro input[type='text'] {
-    width: 70%;
-    padding: 10px;
-    margin-top: 10px;
+.container-cobro input[type='number'] {
+    position: absolute;
+    text-align: center;
+    width: 13%;
+    padding: 6px;
+    top: 21.4%;
+    left: 79%;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
     font-family: "Open Sans", sans-serif;
+}
+
+.signo{
+    position: relative;
+    margin-top:-5.9%;
+    left: 98%;
+}
+
+.descuento{
+    position: relative;
+    margin-top: -9px;
+}
+
+.total{
+    position: relative;
+    margin-top: 3%;
+    margin-left: 63%;
+    font-size: 20px;
+
+}
+
+.total-numero{
+    position: relative;
+    left: 81.5%;
+    margin-top: -9.7%;
+    font-size: 21px;
+}
+
+.subtotal-numero{
+    position: relative;
+    left: 81.5%;
+    margin-top: -7.8%;
+    font-size: 19px;
+}
+
+.subtotal{
+    position: absolute;
+    margin-left: 63%;
+    margin-top: -6.5%;
+
+}
+
+.button-clear-carry{
+    position: relative;
+    top: -34px;
+    left: 10px;
+    background-color: transparent;
+    border: 1px solid grey;
+    border-radius:8px;
+    cursor: pointer;
+    height: 43px;
+}
+
+.button-pay{
+    position: relative;
+    background-color: #66c091; 
+    top: -41px;
+    color: white;
+    left: 35px;
+    width: 80%;
+    border-radius: 8px;
+    height: 43px;
+    font-weight: 400;
+    font-size: 20px;
+    border: 0px solid gray;
+    cursor: pointer;
+
+}
+
+.button-pay:hover{
+    background-color: #66c0a3;
+}
+
+
+.icon{
+    position: absolute;
+    top: 136px;
+    left: 80%;
+    color: white;
 }
