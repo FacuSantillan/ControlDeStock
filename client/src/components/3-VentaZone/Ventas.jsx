@@ -31,9 +31,8 @@ export default function Ventas() {
         return productosSeleccionados.length;
     }
 
-    let subtotal = 0;
-
-    //Handle para calcular el precio total
+    let preciosTotales = 0;
+   
     const calcularPrecioTotal = (precio, cantidad) => {
         const total = parseFloat(precio.replace('$', '')) * cantidad;
         subtotal += total;
