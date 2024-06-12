@@ -5,15 +5,18 @@ import './card.css'
 
 export default function Card1(props) {
     const { nombre, stock, precio, key } = props;
+
     return (
         <div className="container-information">
         <div className="card-content">
-            <img src={image} alt={nombre} className="imagen" />
+            <button >            
+                <img src={image} alt={nombre} className="imagen" />
             <p>{nombre}</p>
             <div className="hidden-info">
                 <p>Stock: {stock}</p>
                 <p>Precio: {precio}</p>
             </div>
+            </button>
         </div>
     </div>
     );

@@ -31,7 +31,8 @@
 
 .card-content p {
     margin: 8px 0;            /* Espaciado entre párrafos */
-    font-size: 16px;          /* Tamaño de fuente */
+    font-size: 16px; 
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;         /* Tamaño de fuente */
     color: #333;              /* Color de texto */
     white-space: nowrap;      /* Evita que el texto se divida en varias líneas */
     overflow: hidden;         /* Oculta el texto desbordado */
@@ -54,4 +55,10 @@
     width: auto;              /* Ajusta el ancho automáticamente */
     margin-bottom: 16px;      /* Espaciado debajo de la imagen */
     object-fit: contain;      /* Ajusta la imagen sin recortar */
+}
+
+button{
+    background-color: transparent;
+    border: 0px solid;
+    cursor: pointer;
 }
