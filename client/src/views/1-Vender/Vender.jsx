@@ -2,6 +2,8 @@ import React from 'react';
 import SearchBar from '../../components/2-SearchBar/searchBar';
 import Card from '../../components/3-VentaZone/Ventas'
 
+import Cards from '../../components/4-Cards/cards/cards'
+
 import './Vender.css';
 
 
@@ -12,8 +14,7 @@ export default function Vender () {
         <h1 className="container-title"> Vender </h1>
 
             <SearchBar/>
-            
-        <Card/>
+            <Card/>
 
             <div className='container-button'>
                     <button className="content-button"> Agregar producto </button>
@@ -26,10 +27,14 @@ export default function Vender () {
             		<option>Option 3</option>
             	</select>
             	<i></i>
-
-                
-
             </div>
+
+            <div className='container-cards'>
+                <div className='information'>
+                    <Cards/>
+                </div>
+            </div>
+
         </div>
     )
 }

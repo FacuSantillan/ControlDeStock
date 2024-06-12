@@ -17,12 +17,48 @@ const productos = [
         stock: 25,
         precio: '$50.75'
     },
-     {
+    {
         id: 4,
-        nombre: 'Colgate ruminous wuait pro max adssd',
+        nombre: 'Coca-Cola 500ml',
         stock: 25,
         precio: '$50.75'
     },
+    {
+        id: 5,
+        nombre: 'Acondicionador Dove',
+        stock: 15,
+        precio: '$120.00'
+    },
+    {
+        id: 6,
+        nombre: 'Crema facial Neutrogena',
+        stock: 20,
+        precio: '$80.50'
+    },
+    {
+        id: 7,
+        nombre: 'Desodorante Rexona',
+        stock: 30,
+        precio: '$40.25'
+    },
+    {
+        id: 8,
+        nombre: 'Jabón en barra Lux',
+        stock: 22,
+        precio: '$30.75'
+    },
+    {
+        id: 9,
+        nombre: 'Gel de ducha Nivea',
+        stock: 28,
+        precio: '$70.30'
+    },
+    {
+        id: 10,
+        nombre: 'Loción corporal Aveeno',
+        stock: 12,
+        precio: '$90.80'
+    }
 ];
 
 export default productos;
