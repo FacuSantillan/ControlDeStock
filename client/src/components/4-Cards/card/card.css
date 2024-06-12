@@ -1,0 +1,64 @@
+.container-information {
+    display: inline-block;
+    width: 15%;              /* Tamaño fijo del contenedor */
+    min-width: 200px;        /* Ancho mínimo para asegurar buena visibilidad en pantallas pequeñas */
+    height: 200px;           /* Altura fija del contenedor */
+    border: 1px solid #ddd;  /* Borde gris claro */
+    border-radius: 8px;      /* Bordes redondeados */
+    padding: 16px;           /* Espaciado interno */
+    margin: 16px;            /* Espaciado externo */
+    background-color: #ffffff;/* Fondo blanco */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    transition: transform 0.3s, box-shadow 0.3s; /* Animación suave al pasar el cursor */
+    overflow: hidden;        /* Oculta el contenido desbordado */
+    text-align: center;      /* Centra el texto */
+    cursor: pointer;         /* Cambia el cursor a puntero al pasar el mouse */
+}
+
+.container-information:hover {
+    transform: scale(1.05);  /* Aumenta ligeramente el tamaño al pasar el cursor */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada al pasar el cursor */
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    transition: all 0.3s ease-in-out; /* Transición suave */
+}
+
+.card-content p {
+    margin: 8px 0;            /* Espaciado entre párrafos */
+    font-size: 16px; 
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;         /* Tamaño de fuente */
+    color: #333;              /* Color de texto */
+    white-space: nowrap;      /* Evita que el texto se divida en varias líneas */
+    overflow: hidden;         /* Oculta el texto desbordado */
+    text-overflow: ellipsis;  /* Agrega puntos suspensivos al texto desbordado */
+}
+
+.hidden-info {
+    opacity: 0;               /* Oculta el stock y el precio inicialmente */
+    max-height: 0;            /* Oculta el stock y el precio inicialmente */
+    transition: opacity 0.3s ease-in-out, max-height 0.3s ease-in-out; /* Transición suave */
+}
+
+.container-information:hover .hidden-info {
+    opacity: 1;               /* Muestra el stock y el precio al pasar el cursor */
+    max-height: 50px;        /* Asegura que se muestre el contenido */
+}
+
+.imagen {
+    height: 100px;            /* Altura de la imagen */
+    width: auto;              /* Ajusta el ancho automáticamente */
+    margin-bottom: 16px;      /* Espaciado debajo de la imagen */
+    object-fit: contain;      /* Ajusta la imagen sin recortar */
+}
+
+button{
+    background-color: transparent;
+    border: 0px solid;
+    cursor: pointer;
+}

@@ -11,11 +11,13 @@ export default function Ventas() {
     const [descuento, setDescuento] = useState(0);
     const [productosSeleccionados, setProductosSeleccionados] = useState(productos);
 
+    //Handle para saber la cantidad de cada producto
     const handleCantidadChange = (event, productId) => {
         const nuevaCantidad = event.target.value;
         setCantidades({ ...cantidades, [productId]: nuevaCantidad });
     };
 
+    //Handle para eliminar productos 
     const handleEliminarProducto = (productId) => {
         const productosActualizados = productosSeleccionados.filter(producto => producto.id !== productId);
         setProductosSeleccionados(productosActualizados);
@@ -24,12 +26,14 @@ export default function Ventas() {
         setCantidades(newCantidades);
     };
 
+    //Handle para saber el total de productos 
     const handleTotalItems = () => {
         return productosSeleccionados.length;
     }
 
     let subtotal = 0;
 
+    //Handle para calcular el precio total
     const calcularPrecioTotal = (precio, cantidad) => {
         const total = parseFloat(precio.replace('$', '')) * cantidad;
         subtotal += total;
@@ -40,12 +44,19 @@ export default function Ventas() {
         return subtotal.toFixed(2);
     };
 
+    //Handle para realizar el descuento
     const handleTotalDescuento = () => {
         const precio = handleTotalPrecio();
         const descuentoAplicado = precio * (descuento / 100);
         const totalConDescuento = precio - descuentoAplicado;
         return totalConDescuento.toFixed(2);
     };
+
+    //Handle para limpiar el carro
+    const handleClearCarry = () => {
+        setProductosSeleccionados([]);
+
+    }
 
     return (
         <div className='container-ventas'>
@@ -64,7 +75,7 @@ export default function Ventas() {
             </div>
 
             <div className='container-cobro'>
-                <p className='items'> Items:{handleTotalItems()}</p>
+                <p className='items'> Items: {handleTotalItems()}</p>
 
                 <p className='subtotal'>Subtotal: </p>
                 <p className='subtotal-numero'> ${handleTotalPrecio()}</p>
@@ -78,7 +89,7 @@ export default function Ventas() {
 
                 <div>
 
-                <button className='button-clear-carry' >
+                <button className='button-clear-carry' onClick={handleClearCarry}>
                     <AiOutlineDelete size={30}/>
                 </button>
 
