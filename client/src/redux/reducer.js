@@ -1,15 +1,21 @@
 //---------------------importacion de los types--------------------------------//
 import {
-    GET_RECIPES,
+    PRODUCTO_SELECCIONADO,
   } from "./actions";
   
   const initialState = {
-    allRecipes: [],
+    productosSeleccionados: [],
   };
   
   function reducer(state = initialState, action) {
     switch (action.type) {
-    
+      
+      case PRODUCTO_SELECCIONADO:
+          return {
+            ...state,
+            productosSeleccionados: action.payload
+          };
+
       default:
         return state;
     }

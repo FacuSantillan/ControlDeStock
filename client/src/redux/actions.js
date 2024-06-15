@@ -2,18 +2,14 @@ import axios from 'axios';
 
 //---------------------exportaciones de los types--------------------------------//
 
-export const GET_RECIPES = "GET_RECIPES";
+export const PRODUCTO_SELECCIONADO = "PRODUCTO_SELECCIONADO";
 
 //---------------------------obtener recetas------------------------------------//
 
-export function getRecipes() {
-    return async function (dispatch){
-        const response = await axios(`/recipes`);
-        
-     return dispatch({
-            type:'GET_RECIPES',
-            payload: response.data,
-        });
+export const productosSeleccionados = (productosSeleccionados) => {
+    return {
+        type: 'PRODUCTO_SELECCIONADO',
+        payload: productosSeleccionados
     };
 };
 
