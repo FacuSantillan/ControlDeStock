@@ -1,5 +1,6 @@
-import { createStore } from 'redux';
 import rootReducer from '../reducer'; // Asegúrate de tener un archivo de reducers
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 
 // Crear el store de Redux
 const store = createStore(

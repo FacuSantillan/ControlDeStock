@@ -4,12 +4,17 @@ import Card from '../../components/3-VentaZone/Ventas'
 
 import Cards from '../../components/4-Cards/cards/cards'
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import './Vender.css';
 
 
 export default function Vender () {
     return (
         <div className="container-all">
+            
+            <ToastContainer />
 
         <h1 className="container-title"> Vender </h1>
 

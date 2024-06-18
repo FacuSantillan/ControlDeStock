@@ -1,20 +1,22 @@
 import React from 'react';
 import image from '../../../assets/diseno-de-producto.png'
 import { useState } from 'react';
+import {productosSeleccionados} from '../../../redux/actions';
+import { useDispatch } from 'react-redux'
 
 import './card.css'
 
 
 export default function Card1(props) {
-    const { nombre, stock, precio, key } = props;
+    const { nombre, stock, precio, id } = props;
 
-    const [productosSelect, setProductosSelect] = useState([]);
+    const dispatch = useDispatch();
 
     const handleExportProducto = () => {
-        productosSelect.push(props)
-        console.log(productosSelect)
-    }
-
+        const producto = { nombre, stock, precio, id };
+        dispatch(productosSeleccionados(producto));
+    };
+    
     return (
         <div className="container-information">
         <div className="card-content">
