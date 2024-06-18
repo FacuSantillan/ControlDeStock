@@ -11,7 +11,7 @@ export const CLEAR_CARRY = "CLEAR_CARRY";
 export const productosSeleccionados = (informacion, cantidad) => {
         return {
             type: 'PRODUCTO_SELECCIONADO',
-            payload: {informacion, cantidad }
+            payload: {informacion, cantidad}
         }; 
 };
 
