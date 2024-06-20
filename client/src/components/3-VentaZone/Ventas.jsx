@@ -3,7 +3,7 @@ import { FaTimes } from 'react-icons/fa';
 import { AiOutlineDelete } from "react-icons/ai";
 import { IoIosArrowForward } from "react-icons/io";
 import { useSelector, useDispatch } from 'react-redux';
-import { eliminarProducto, clearCarry } from '../../redux/actions';
+import { eliminarProducto, clearCarry, actualizarCantidad } from '../../redux/actions';
 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -16,12 +16,10 @@ export default function Ventas() {
     const [descuento, setDescuento] = useState(0);
 
     const handleCantidadChange = (event, productId) => {
-        const nuevaCantidad = parseInt(event.target.value);
+        const nuevaCantidad = parseInt(event.target.value, 10);
         if (nuevaCantidad >= 1) {
-            // Aquí puedes despachar una acción para actualizar la cantidad del producto en el store si es necesario
-            // dispatch(actualizarCantidad(productId, nuevaCantidad));
+            dispatch(actualizarCantidad(productId, nuevaCantidad));
         } else {
-            // Si la cantidad es menor que 1, puedes manejarlo de acuerdo a tus necesidades (por ejemplo, eliminar el producto)
             handleEliminarProducto(productId);
         }
     };
@@ -69,8 +67,9 @@ export default function Ventas() {
                                 type='number' 
                                 value={producto.cantidad} 
                                 onChange={(e) => handleCantidadChange(e, producto.id)} 
+                                min="1"
                             />
-                             <div className='productos-information'>
+                            <div className='productos-information'>
                                 <u className='producto-nombre'>{producto.nombre}</u>
                                 <u className='cantidad-stock'>{producto.stock}</u>
                                 <u className='precio-prducto'>${calcularPrecioTotal(producto.precio, producto.cantidad)}</u>
@@ -95,15 +94,12 @@ export default function Ventas() {
                 <p className='total-numero'>${handleTotalConDescuento()}</p>
 
                 <div>
-
                     <button className='button-clear-carry' onClick={handleClearCarry}>
                         <AiOutlineDelete size={30} />
                     </button>
-
                     <button className='button-pay'>
                         ir al pago
                     </button>
-
                     <IoIosArrowForward className='icon' size={23} />
                 </div>
             </div>

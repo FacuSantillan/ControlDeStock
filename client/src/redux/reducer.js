@@ -2,7 +2,9 @@
 import {
     PRODUCTO_SELECCIONADO,
     ELIMINAR_PRODUCTO,
-    CLEAR_CARRY
+    CLEAR_CARRY,
+    ACTUALIZAR_CANTIDAD
+
   } from "./actions";
   import { toast } from 'react-toastify';
 
@@ -42,6 +44,16 @@ import {
                 ...state,
                 productosSeleccionados: action.payload
             };
+
+            case ACTUALIZAR_CANTIDAD: {
+              const { productId, cantidad } = action.payload;
+              return {
+                  ...state,
+                  productosSeleccionados: state.productosSeleccionados.map(producto =>
+                      producto.id === productId ? { ...producto, cantidad } : producto
+                  )
+              };
+          }
 
       default:
         return state;
