@@ -5,15 +5,21 @@ import axios from 'axios';
 export const PRODUCTO_SELECCIONADO = "PRODUCTO_SELECCIONADO";
 export const ELIMINAR_PRODUCTO = "ELIMINAR_PRODUCTO";
 export const CLEAR_CARRY = "CLEAR_CARRY";
+export const ACTUALIZAR_CANTIDAD = 'ACTUALIZAR_CANTIDAD';
 
 //---------------------------obtener recetas------------------------------------//
 
-export const productosSeleccionados = (informacion, cantidad) => {
+export const productosSeleccionados = (informacion) => {
         return {
             type: 'PRODUCTO_SELECCIONADO',
-            payload: {informacion, cantidad}
+            payload: {informacion}
         }; 
 };
+
+export const actualizarCantidad = (productId, cantidad) => ({
+    type: ACTUALIZAR_CANTIDAD,
+    payload: { productId, cantidad }
+});
 
 export const eliminarProducto = (productId) => {
     return {

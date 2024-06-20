@@ -4,8 +4,6 @@ import Card1 from '../card/card';
 
 export default function Cards() {
 
-    
-
     if (!Array.isArray(productos) || productos.length === 0) {
         return <div><h1>No hay reservas momentáneamente.</h1></div>;
     }
@@ -18,6 +16,7 @@ export default function Cards() {
                     nombre={data.nombre}
                     stock={data.stock}
                     precio={data.precio}
+                    cantidad={data.cantidad}
                     id={data.id}
                 />
             ))}

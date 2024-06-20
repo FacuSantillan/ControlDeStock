@@ -8,12 +8,11 @@ import './card.css'
 
 
 export default function Card1(props) {
-    const { nombre, stock, precio, id } = props;
-
+    const { nombre, stock, precio, cantidad, id } = props;
     const dispatch = useDispatch();
 
     const handleExportProducto = () => {
-        const producto = { nombre, stock, precio, id };
+        const producto = { nombre, stock, precio, id, cantidad };
         dispatch(productosSeleccionados(producto));
     };
     
